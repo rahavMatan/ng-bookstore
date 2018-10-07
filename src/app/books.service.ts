@@ -1,3 +1,5 @@
+import { timeout } from "q";
+
 export class BooksService {
     private books = [
     {"isbn":"126308030-8","title":"Blackbeard, the Pirate","description":"Excision of Trigeminal Nerve, Open Approach","author":"Benedikta Bradnum","price":60},
@@ -43,11 +45,20 @@ export class BooksService {
     ]
 
     getBooks(){
-        return [...this.books]
+       // return Promise.resolve([...this.books])
+       return new Promise(resolve=>{
+           setTimeout(()=>{
+                resolve(this.books)
+           },800)
+       })
     }
 
     getBook(isbn:string){
-        return this.books.find(b=>b.isbn===isbn)
-        
+        //return Promise.resolve(this.books.find(b=>b.isbn===isbn))        
+        return new Promise(resolve=>{
+            setTimeout(()=>{
+                 resolve(this.books.find(b=>b.isbn===isbn))
+            },800)
+        })
     }
 }

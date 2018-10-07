@@ -5,7 +5,12 @@ import { CartItem } from '../cart-item.model';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styles: [`
+    .cart {
+      position: sticky;
+      top: 0;
+    }
+  `]
 })
 export class CartComponent implements OnInit {
 

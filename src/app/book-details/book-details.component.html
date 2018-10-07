@@ -1,6 +1,6 @@
 <div class="row">
   <div *ngIf="!book" class="col-lg-12">
-      <h3>Please select a book</h3>
+      <h3>{{message}}</h3>
   </div>
   <div *ngIf="book" class="col-lg-12">
     <h3>{{book.title}}</h3>
@@ -8,7 +8,10 @@
     <p>price: ${{book.price}}</p>
   </div>
   <div class="col-lg-12">
-    <button (click)="onAddToCart()">Add To Cart</button>
-    <button routerLink="/books">Back</button>
+    <div class="btn-group">
+        <button class="btn btn-info" [disabled]="!book" (click)="onAddToCart()">Add To Cart</button>
+        <button class="btn" routerLink="/books">Back</button>
+    </div>
+
   </div>
 </div>

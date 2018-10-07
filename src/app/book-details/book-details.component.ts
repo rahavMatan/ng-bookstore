@@ -12,6 +12,7 @@ import { CartService } from '../cart.service';
 export class BookDetailsComponent implements OnInit {
   isbn:string
   book:Book
+  message = 'Loading...'
   constructor(private route:ActivatedRoute, 
     private booksService:BooksService, 
     private cartService:CartService,
@@ -19,8 +20,13 @@ export class BookDetailsComponent implements OnInit {
 
   ngOnInit() {   
     this.isbn = this.route.snapshot.params.isbn
-    this.book = this.booksService.getBook(this.isbn)
-    console.log(this.book);    
+    this.booksService.getBook(this.isbn).then((book:Book)=>{
+      this.book=book
+      if(!book){
+        this.message = 'No such book.'
+      }
+    })
+    
   }
 
   onAddToCart(){
