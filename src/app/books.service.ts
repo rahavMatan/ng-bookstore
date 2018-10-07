@@ -1,5 +1,5 @@
 export class BooksService {
-    books = [
+    private books = [
     {"isbn":"126308030-8","title":"Blackbeard, the Pirate","description":"Excision of Trigeminal Nerve, Open Approach","author":"Benedikta Bradnum","price":60},
     {"isbn":"923537930-X","title":"Peggy Sue Got Married","description":"Drainage of Esophagogastric Junction, Via Natural or Artificial Opening","author":"Olga Mayhead","price":6},
     {"isbn":"029579934-X","title":"Ted","description":"Excision of Perineum Bursa and Ligament, Percutaneous Endoscopic Approach, Diagnostic","author":"Noell McPeice","price":43},
@@ -44,5 +44,10 @@ export class BooksService {
 
     getBooks(){
         return [...this.books]
+    }
+
+    getBook(isbn:string){
+        return this.books.find(b=>b.isbn===isbn)
+        
     }
 }

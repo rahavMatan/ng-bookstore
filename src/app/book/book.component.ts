@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../book.model';
 import { CartService } from '../cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -9,13 +10,18 @@ import { CartService } from '../cart.service';
 })
 export class BookComponent implements OnInit {
   @Input() book:Book
-  constructor(private cartService:CartService) { }
+  constructor(private cartService:CartService,private router:Router) { }
 
   ngOnInit() {    
     
   }
 
-  onAdd(){
+  onBookClicked(){
+    //this.router.navigate(['books',this.book.isbn])
+  }
+
+  onAdd(e){
+    e.stopPropagation()    
     this.cartService.addItem(this.book)
   }
 

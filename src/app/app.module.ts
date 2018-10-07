@@ -8,6 +8,8 @@ import { CartService } from './cart.service';
 import { BooksService } from './books.service';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,12 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     BooksListComponent,
     BookComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    BookDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [
     CartService,

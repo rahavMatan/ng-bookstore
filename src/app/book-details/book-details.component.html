@@ -1,0 +1,14 @@
+<div class="row">
+  <div *ngIf="!book" class="col-lg-12">
+      <h3>Please select a book</h3>
+  </div>
+  <div *ngIf="book" class="col-lg-12">
+    <h3>{{book.title}}</h3>
+    <p>{{book.description}}</p>
+    <p>price: ${{book.price}}</p>
+  </div>
+  <div class="col-lg-12">
+    <button (click)="onAddToCart()">Add To Cart</button>
+    <button routerLink="/books">Back</button>
+  </div>
+</div>
