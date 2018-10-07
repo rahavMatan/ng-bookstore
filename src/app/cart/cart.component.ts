@@ -12,7 +12,6 @@ export class CartComponent implements OnInit {
   constructor(private cartService:CartService) { }
   items:CartItem[] = []
   total:number = 0
-  
   ngOnInit() {
     this.items = this.cartService.items
     this.total = this.cartService.total
