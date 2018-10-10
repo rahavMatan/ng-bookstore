@@ -1,9 +1,12 @@
-    
-        <p *ngIf="!books.length">Loading books...</p>
-        <ul *ngIf="books.length" class="list-group">
-          <li *ngFor="let book of books" class="list-group-item">
-            <app-book [book]="book"></app-book>
-          </li>
-        </ul>
+<p *ngIf="!books.length">Loading books...</p>
+<div>
+    <app-search-bar></app-search-bar>
+    <ul *ngIf="books.length" class="list-group">
+        <li *ngFor="let book of books" class="list-group-item">
+           <app-book [book]="book"></app-book>
+        </li>
+      </ul>
+</div>
+
 
 

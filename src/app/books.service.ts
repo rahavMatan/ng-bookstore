@@ -54,7 +54,7 @@ export class BooksService {
        return new Promise(resolve=>{
            setTimeout(()=>{
                 resolve(this.books)
-           },800)
+           },80)
        })
     }
 
@@ -63,7 +63,7 @@ export class BooksService {
         return new Promise(resolve=>{
             setTimeout(()=>{
                  resolve(this.books.find(b=>b.isbn===isbn))
-            },800)
+            },80)
         })
     }
 
@@ -83,5 +83,18 @@ export class BooksService {
     removeBook(book:Book){
         this.books = this.books.filter(b=>b.isbn !== book.isbn)
         this.booksChanged.emit(this.books)
+    }
+
+    search(text:string){
+        if(!text.length){
+            this.booksChanged.emit(this.books)
+        } else {
+            this.booksChanged.emit(
+                this.books.filter(book=>{
+                    return (book.title.toLowerCase().includes(text.toLowerCase())) ||
+                    book.description.toLowerCase().includes(text.toLowerCase())
+                })
+            )
+        }
     }
 }

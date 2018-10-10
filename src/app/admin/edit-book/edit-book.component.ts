@@ -9,7 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./edit-book.component.css']
 })
 export class EditBookComponent implements OnInit {
-  @Input() book :Book = null
+  @Input() book:Book = null
+
   isNewBook:boolean = false;
 
   @Output() onDone = new EventEmitter<void>()

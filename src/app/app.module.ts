@@ -14,6 +14,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditBookComponent } from './admin/edit-book/edit-book.component';
 import { UserComponent } from './user/user.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UserComponent } from './user/user.component';
     BookDetailsComponent,
     AdminComponent,
     EditBookComponent,
-    UserComponent
+    UserComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
