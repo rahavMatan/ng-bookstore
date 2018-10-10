@@ -1,4 +1,5 @@
-import { timeout } from "q";
+import {Book} from './book.model'
+import { EventEmitter } from '@angular/core';
 
 export class BooksService {
     private books = [
@@ -44,6 +45,8 @@ export class BooksService {
     {"isbn":"495119095-8","title":"The Incite Mill - 7 Day Death Game","description":"Bypass Jejunum to Cecum with Nonautologous Tissue Substitute, Via Natural or Artificial Opening Endoscopic","author":"Eugenie Tribble","price":47}
     ]
 
+    onBookSelceted = new EventEmitter<Book>()
+
     getBooks(){
        // return Promise.resolve([...this.books])
        return new Promise(resolve=>{
@@ -60,5 +63,9 @@ export class BooksService {
                  resolve(this.books.find(b=>b.isbn===isbn))
             },800)
         })
+    }
+
+    bookSelceted(book:Book){
+        this.onBookSelceted.emit(book)
     }
 }

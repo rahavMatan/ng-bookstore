@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Book } from '../book.model';
 import { CartService } from '../cart.service';
 import { Router } from '@angular/router';
+import { BooksService } from '../books.service';
 
 @Component({
   selector: 'app-book',
@@ -10,7 +11,11 @@ import { Router } from '@angular/router';
 })
 export class BookComponent implements OnInit {
   @Input() book:Book
-  constructor(private cartService:CartService,private router:Router) { }
+
+  constructor(
+    private cartService:CartService,
+    private router:Router,
+    private bookService:BooksService) { }
 
   ngOnInit() {    
     
@@ -18,6 +23,7 @@ export class BookComponent implements OnInit {
 
   onBookClicked(){
     //this.router.navigate(['books',this.book.isbn])
+    this.bookService.onBookSelceted.emit(this.book)
   }
 
   onAdd(e){
