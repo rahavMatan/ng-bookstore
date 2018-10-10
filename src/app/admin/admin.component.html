@@ -1,3 +1,15 @@
-<p>
-  admin works!
-</p>
+<div *ngIf="editing">
+  <app-edit-book [book]="selectedBook" (onDone)="onEditDone()"></app-edit-book>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+      <button (click)="onCreateBook()">+ New</button>
+  </div>
+ 
+</div>
+<div class="row">
+    <div class="col-md-9">
+      <app-books-list></app-books-list>
+    </div>
+</div>

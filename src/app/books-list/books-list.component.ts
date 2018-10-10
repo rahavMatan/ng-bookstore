@@ -16,6 +16,12 @@ export class BooksListComponent implements OnInit {
     this.booksService.getBooks().then((books:Book[])=>{
       this.books = books
     })
+
+    this.booksService.booksChanged.subscribe((books:Book[])=>{
+      console.log('changed');
+      
+      this.books = books
+    })
   }
 
 }

@@ -1,3 +1,79 @@
-<p>
-  edit-book works!
-</p>
+<!-- <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit book: {{book.isbn || newBook}} </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<form #bookForm="ngForm" (ngSubmit)="onSubmit()" class="edit-modal">
+    <!-- <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit book </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" routerLink="/admin">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div> -->
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">ISBN</label>
+        <input
+        [disabled]="!isNewBook"
+        name="isbn"
+        type="text" 
+        class="form-control" 
+        [(ngModel)]="book.isbn">
+       
+      </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Title</label>
+      <input
+      name="title"
+      type="text" 
+      class="form-control" 
+      [(ngModel)]="book.title">
+     
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Description</label>
+      <input 
+      type="text"
+       class="form-control" 
+       name="Description"
+       [(ngModel)]="book.description">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Price</label>
+        <input 
+        type="number" 
+        class="form-control"
+        name="price"
+        [(ngModel)]="book.price">
+      </div>
+    <button class="btn btn-primary">Submit</button>
+    <button class="btn" routerLink="/admin">Back</button>
+    <button class="btn" (click)="onRemoveBook($event)">Delete</button>
+  </form>
+

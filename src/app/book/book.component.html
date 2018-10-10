@@ -1,4 +1,4 @@
-<div class="container" [routerLink]="['/books',book.isbn ]">
+<div class="container" (click)="onBookClicked()">
 
   <div class="row">
     <div class="col-xs-12">
@@ -12,9 +12,9 @@
         </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <!-- <div class="col-xs-12">
         <button (click)="onAdd($event)">Add to cart</button>
-      </div>
+      </div> -->
 </div>
 
 </div>

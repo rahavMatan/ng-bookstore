@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BooksListComponent } from './books-list/books-list.component';
@@ -12,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditBookComponent } from './admin/edit-book/edit-book.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { EditBookComponent } from './admin/edit-book/edit-book.component';
     CartItemComponent,
     BookDetailsComponent,
     AdminComponent,
-    EditBookComponent
+    EditBookComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     CartService,

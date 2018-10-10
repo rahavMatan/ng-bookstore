@@ -1,0 +1,9 @@
+.edit-modal {
+    z-index:999999;
+    position: fixed;
+    height:25vw;
+    width:50vw;
+    left:25%;
+    top:25%;
+    background-color: grey;
+}

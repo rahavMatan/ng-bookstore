@@ -1,5 +1,6 @@
 import {Book} from './book.model'
 import { EventEmitter } from '@angular/core';
+import { EditBookComponent } from './admin/edit-book/edit-book.component';
 
 export class BooksService {
     private books = [
@@ -46,6 +47,7 @@ export class BooksService {
     ]
 
     onBookSelceted = new EventEmitter<Book>()
+    booksChanged = new EventEmitter<Book[]>()
 
     getBooks(){
        // return Promise.resolve([...this.books])
@@ -67,5 +69,19 @@ export class BooksService {
 
     bookSelceted(book:Book){
         this.onBookSelceted.emit(book)
+    }
+
+    upsertBook(editedBook:Book){
+        var index = this.books.findIndex(book=>book.isbn === editedBook.isbn)
+        if(index >= 0) {
+            this.books[index] = editedBook
+        } else {
+            this.books.push(editedBook)
+        }
+    }
+
+    removeBook(book:Book){
+        this.books = this.books.filter(b=>b.isbn !== book.isbn)
+        this.booksChanged.emit(this.books)
     }
 }

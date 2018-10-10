@@ -31,7 +31,7 @@ export class BookDetailsComponent implements OnInit {
 
   onAddToCart(){
     this.cartService.addItem(this.book)
-    this.router.navigate(['/books'])
+    this.router.navigate(['/user'])
   }
 
 }
