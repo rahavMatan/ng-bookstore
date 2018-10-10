@@ -1,6 +1,13 @@
-<p *ngIf="!books.length">Loading books...</p>
-<ul *ngIf="books.length" class="list-group">
-  <li *ngFor="let book of books" class="list-group-item">
-    <app-book [book]="book"></app-book>
-  </li>
-</ul>
+<div class="row">
+    <div class="col-md-9">        
+        <p *ngIf="!books.length">Loading books...</p>
+        <ul *ngIf="books.length" class="list-group">
+          <li *ngFor="let book of books" class="list-group-item">
+            <app-book [book]="book"></app-book>
+          </li>
+        </ul>
+    </div>
+    <div class="col-md-3 cart">
+       <app-cart></app-cart>
+    </div>
+</div>

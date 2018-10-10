@@ -10,6 +10,8 @@ import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { AdminComponent } from './admin/admin.component';
+import { EditBookComponent } from './admin/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     BookComponent,
     CartComponent,
     CartItemComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    AdminComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,
